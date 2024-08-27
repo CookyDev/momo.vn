@@ -9,17 +9,19 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
+import io.flutter.plugin.common.PluginRegistry.Registrar
 import android.content.pm.PackageManager
 import androidx.annotation.NonNull
 
 class MomoVnPlugin(private var registrar: Registrar) : MethodCallHandler,FlutterPlugin {
     private val momoVnPluginDelegate = MomoVnPluginDelegate(registrar)
+    private lateinit var channel : MethodChannel
     init {
         registrar.addActivityResultListener(momoVnPluginDelegate)
     }
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         val momoPaymentPlugin = MomoVnPlugin(registrar)
-        val channel = MethodChannel(registrar.messenger(), MomoVnConfig.CHANNEL_NAME)
+        channel = MethodChannel(registrar.messenger(), MomoVnConfig.CHANNEL_NAME)
         channel.setMethodCallHandler(momoPaymentPlugin)
     }
 
@@ -34,7 +36,6 @@ class MomoVnPlugin(private var registrar: Registrar) : MethodCallHandler,Flutter
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-        val channel = MethodChannel(registrar.messenger(), MomoVnConfig.CHANNEL_NAME)
         channel.setMethodCallHandler(null)
     }
 
