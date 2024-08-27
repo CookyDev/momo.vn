@@ -45,38 +45,38 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Column(
                 children: [
-                  FlatButton(
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    disabledColor: Colors.grey,
-                    disabledTextColor: Colors.black,
-                    padding: EdgeInsets.all(8.0),
-                    splashColor: Colors.blueAccent,
-                    child: Text('DEMO PAYMENT WITH MOMO.VN'),
-                    onPressed: () async {
-                      MomoPaymentInfo options = MomoPaymentInfo(
-                          merchantName: "TTNC&TVKT",
-                          appScheme: "MOMOUMGQ111111",
-                          merchantCode: 'MOMOUMGQ111111',
-                          partnerCode: 'MOMOUMGQ111111',
-                          amount: 60000,
-                          orderId: '12321312',
-                          orderLabel: 'Gói khám sức khoẻ',
-                          merchantNameLabel: "HẸN KHÁM BỆNH",
-                          fee: 10,
-                          description: 'Thanh toán hẹn khám chữa bệnh',
-                          username: '01234567890',
-                          partner: 'merchant',
-                          extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
-                          isTestMode: true
-                      );
-                      try {
-                        _momoPay.open(options);
-                      } catch (e) {
-                        debugPrint(e.toString());
-                      }
-                    },
-                  ),
+                  // ElevatedButton(
+                  //   color: Colors.blue,
+                  //   textColor: Colors.white,
+                  //   disabledColor: Colors.grey,
+                  //   disabledTextColor: Colors.black,
+                  //   padding: EdgeInsets.all(8.0),
+                  //   splashColor: Colors.blueAccent,
+                  //   child: Text('DEMO PAYMENT WITH MOMO.VN'),
+                  //   onPressed: () async {
+                  //     MomoPaymentInfo options = MomoPaymentInfo(
+                  //         merchantName: "TTNC&TVKT",
+                  //         appScheme: "MOMOUMGQ111111",
+                  //         merchantCode: 'MOMOUMGQ111111',
+                  //         partnerCode: 'MOMOUMGQ111111',
+                  //         amount: 60000,
+                  //         orderId: '12321312',
+                  //         orderLabel: 'Gói khám sức khoẻ',
+                  //         merchantNameLabel: "HẸN KHÁM BỆNH",
+                  //         fee: 10,
+                  //         description: 'Thanh toán hẹn khám chữa bệnh',
+                  //         username: '01234567890',
+                  //         partner: 'merchant',
+                  //         extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
+                  //         isTestMode: true
+                  //     );
+                  //     try {
+                  //       _momoPay.open(options);
+                  //     } catch (e) {
+                  //       debugPrint(e.toString());
+                  //     }
+                  //   },
+                  // ),
                 ],
               ),
               Text(_paymentStatus.isEmpty ? "CHƯA THANH TOÁN" : _paymentStatus)
