@@ -10,19 +10,20 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import io.flutter.plugin.common.PluginRegistry
 import android.content.pm.PackageManager
 import androidx.annotation.NonNull
 import vn.momo.momo_partner.AppMoMoLib
 
 class MomoVnPlugin : MethodCallHandler,FlutterPlugin,ActivityAware, PluginRegistry.ActivityResultListener {
-  //  private val momoVnPluginDelegate = MomoVnPluginDelegate(registrar)
+    //  private val momoVnPluginDelegate = MomoVnPluginDelegate(registrar)
     private lateinit var channel : MethodChannel
     var act: Activity? = null
-//    init {
+    //    init {
 //        registrar.addActivityResultListener(momoVnPluginDelegate)
 //    }
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-      //  val momoPaymentPlugin = MomoVnPlugin(registrar)
+        //  val momoPaymentPlugin = MomoVnPlugin(registrar)
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, MomoVnConfig.CHANNEL_NAME)
         channel.setMethodCallHandler(this)
     }
